@@ -14,7 +14,8 @@
     "react-refresh": "0.10.0"
   },
   "scripts":{
-    "start": "next start"
+    "start": "next start",
+    "build": "next build"
   },
   "module": "index.js"
 }
