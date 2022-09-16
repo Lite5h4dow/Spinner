@@ -13,5 +13,8 @@
     "typescript": "latest",
     "react-refresh": "0.10.0"
   },
+  "scripts":{
+    "start": "next start"
+  },
   "module": "index.js"
 }
