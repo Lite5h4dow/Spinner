@@ -1,7 +1,10 @@
 #!/bin/bash
 
-if [ $ENVIRONMENT == "PRODUCTION" ]; then
-  ~/.bun/bin/bun start
-else
-  ~/.bun/bin/bun dev
-fi
+case $ENVIRONMENT in
+  PRODUCTION)
+    ~/.bun/bin/bun start
+  ;;
+  *)
+    ~/.bun/bin/bun dev -p ${APP_PORT:-8000}
+  ;;
+esac

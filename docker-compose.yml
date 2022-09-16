@@ -10,6 +10,10 @@ services:
       APP_PORT: 8000
     depends_on:
       - spinner-db
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app:/app
 
   spinner-db:
     container_name: spinner-db
