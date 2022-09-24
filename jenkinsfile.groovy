@@ -1,6 +1,6 @@
 def spinnerImage
-pipeline:{
-  agent:any
+pipeline{
+  agent any
   options{
     timestamps()
     timeout(time: 2, unit: 'HOURS')   // timeout on whole pipeline job
