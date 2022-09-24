@@ -6,8 +6,18 @@ services:
     environment:
       PORT: 8000
       ENVIRONMENT: DEVELOPMENT
+      DB_HOST: http://db-development:8000/rpc
+      DB_USER: root
+      DB_PASS: root
+      DB_DATABASE: dev
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ../src/:/app
     ports:
       - 8000:8000
+  db:
+    container_name: db-development
+    image: surrealdb/surrealdb:latest 
+    ports:
+      - 8001:8000 
+    command: start --log trace --user root --pass root
