@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Surreal from "surrealdb.js";
-import withSurreal from "../../../lib/RequestWithSurreal";
+import withSurreal from "../../../../lib/RequestWithSurreal";
 
 const handler = async (req:NextApiRequest, res:NextApiResponse, db:Surreal) => {
   const {hostId} = req.query;
