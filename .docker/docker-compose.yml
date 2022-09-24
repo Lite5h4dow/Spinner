@@ -1,6 +1,13 @@
-version:"3.9"
+version: "3.9"
 services:
   app:
+    container_name: spinner-development
     build: ../.
     environment:
       PORT: 8000
+      ENVIRONMENT: DEVELOPMENT
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ../src/:/app
+    ports:
+      - 8000:8000
