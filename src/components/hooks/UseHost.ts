@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
 
-const UseHost = () => {
+const UseHost = (id) => {
   const [hostData, setHostData] = useState({});
 
   const getHostData = async()=>{
-    const data = await fetch("/api/host")
+    const data = await fetch(`/api/hosts/${id}`)
     setHostData(data.json)
   }
 
