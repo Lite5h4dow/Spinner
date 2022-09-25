@@ -1,15 +1,13 @@
-import Docker from "dockerode"
+import HumanReadableHost from "lib/helpers/HumanReadableHost";
+import withSurreal from "lib/helpers/RequestWithSurreal";
+import { Host } from "lib/interfaces/host";
 import { NextApiRequest, NextApiResponse } from "next"
 import Surreal from "surrealdb.js";
-import withSurreal from "../../../lib/RequestWithSurreal";
-import {Host} from "../../../lib/interfaces/host";
 
 const handler = async(req:NextApiRequest, res:NextApiResponse, db:Surreal) => {
-  const hosts:Host[] = await db.select("host")
-  console.log(hosts)
+  const hosts:Host[] = await db.select<Host>("host")
   const hostData = await Promise.all(hosts.map(async (i) => {
-    const connection = new Docker({...i.connectionOptions})
-    return await connection.info()
+    return await HumanReadableHost(db, i.id)
   }))
 
   res

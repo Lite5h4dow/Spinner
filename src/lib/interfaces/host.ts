@@ -9,6 +9,7 @@ export interface HostData{
   version?:string
 }
 export interface Host{
+  id?:string
   name:string,
   location:"local"|"remote",
   type:"socket"|"network",
