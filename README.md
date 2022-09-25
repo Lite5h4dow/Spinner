@@ -1,4 +1,4 @@
-# Spinner
+# Spinner 🔄
 Spinner is a selfhosted Docker management system designed with Oneshot docker runs in mind.
 
 ## Goals
