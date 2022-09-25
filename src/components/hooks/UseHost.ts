@@ -10,7 +10,7 @@ const UseHost = (id) => {
 
   useEffect(()=>{
     getHostData();
-  })
+  },[])
 
   return hostData;
 }
