@@ -1,4 +1,3 @@
-import HumanReadableHost from 'lib/helpers/HumanReadableHost';
 import withSurreal from 'lib/helpers/RequestWithSurreal';
 import { NextApiRequest, NextApiResponse } from 'next';
 import Surreal from 'surrealdb.js';
@@ -8,9 +7,8 @@ const handler = async (
   res: NextApiResponse,
   db: Surreal
 ) => {
-  const { hostId } = req.query;
-  const hostInfo = await HumanReadableHost(db, hostId.toString());
-  res.status(200).json(hostInfo);
+  const { compositionId } = req.query;
+  const composition = await db.select(compositionId.toString());
 };
 
-export default withSurreal(handler);
+withSurreal(handler);

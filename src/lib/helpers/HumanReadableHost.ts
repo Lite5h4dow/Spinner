@@ -1,24 +1,24 @@
-import Surreal from "surrealdb.js";
-import withDocker from "./withDockerConnection";
+import Surreal from 'surrealdb.js';
+import withDocker from './WithDockerConnection';
 
-const HumanReadableHost = async (db:Surreal, id:string) => {
-  const {host, data} = await withDocker(db, id)
+const HumanReadableHost = async (db: Surreal, id: string) => {
+  const { host, data } = await withDocker(db, id);
   const hostInfo = await host.info();
-  return{
+  return {
     ...data,
     containers: {
       total: hostInfo.Containers,
       running: hostInfo.ContainersRunning,
       paused: hostInfo.ContainersPaused,
-      stopped: hostInfo.ContainersStopped
+      stopped: hostInfo.ContainersStopped,
     },
     images: hostInfo.Images,
-    system:{
+    system: {
       operatingSystem: hostInfo.OperatingSystem,
       type: hostInfo.OSType,
-      name: hostInfo.Name
-    }
-  }
-}
+      name: hostInfo.Name,
+    },
+  };
+};
 
-export default HumanReadableHost
+export default HumanReadableHost;

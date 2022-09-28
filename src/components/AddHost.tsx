@@ -1,5 +1,3 @@
-const AddHost = () => {
+const AddHost = () => {};
 
-}
-
-export default AddHost
+export default AddHost;

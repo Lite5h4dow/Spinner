@@ -1,20 +1,18 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from 'react';
 
 const UseHosts = () => {
+  const [hosts, setHosts] = useState({});
 
-  const [hosts, setHosts] = useState({})
-  
   const getHostsData = async () => {
-    const response = await fetch("/api/hosts");
+    const response = await fetch('/api/hosts');
     setHosts(response);
-  }
+  };
 
-  useEffect(()=>{
-    getHostsData()
-  },[])
+  useEffect(() => {
+    getHostsData();
+  }, []);
 
+  return hosts;
+};
 
-  return hosts
-}
-
-export default UseHosts
+export default UseHosts;
