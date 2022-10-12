@@ -6,6 +6,9 @@ const handler = async (
   req: NextApiRequest,
   res: NextApiResponse,
   db: Surreal
-) => {};
+) => {
 
-withSurreal(handler);
+
+};
+
+export default withSurreal(handler);

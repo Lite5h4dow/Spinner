@@ -8,4 +8,4 @@ const handler = async (
   db: Surreal
 ) => {};
 
-withSurreal(handler);
+export default withSurreal(handler);

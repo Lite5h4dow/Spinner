@@ -20,4 +20,5 @@ export interface Host {
     port?: number;
     version?: string;
   };
+  killDelay?: number;
 }

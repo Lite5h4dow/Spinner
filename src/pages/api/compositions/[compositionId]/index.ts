@@ -11,4 +11,4 @@ const handler = async (
   const composition = await db.select(compositionId.toString());
 };
 
-withSurreal(handler);
+export default withSurreal(handler);
